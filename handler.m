@@ -1,13 +1,15 @@
-function lineInfo = handler( array )
+function lineInfo = handler( curLine )
 
-if(sum(array ==1) > 0 && sum(array==2) > 0 || sum(array ==0) == length(array))
+if(sum(curLine.state ==1) > 0 && sum(curLine.state==2) > 0 || sum(curLine.state ==0) == length(curLine.state) || (curLine.state > 2) > 0)
     lineInfo = 0;
 else
-    if(sum(array ==1) >0)
-        lineInfo= struct ('player', '1' , 'start_point', '' , 'end_point', '' ,'state', array);
+    if(sum(curLine.state ==1) >0)
+        lineInfo= curLine;
+        lineInfo.player = '1';
     end;
-    if(sum(array == 2) > 0)
-        lineInfo= struct ('player', '1' , 'start_point', '' , 'end_point', '' ,'state', array);
+    if(sum(curLine.state == 2) > 0)
+        lineInfo= curLine;
+        lineInfo.player = '2';
     end;
 end;
 

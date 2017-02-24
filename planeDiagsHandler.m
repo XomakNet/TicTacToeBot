@@ -7,7 +7,7 @@ for i = 1:size(board,1)
     while(j < size(board,2) && k < size(board,3))
     %handler
     j = j+1;
-    k = k+1;
+    k = k+ofxt1;
     end
     j = 1;
     k = size(board,3);
