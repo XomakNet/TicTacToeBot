@@ -4,6 +4,7 @@ function normalizedCellsLeft = normalizeCellsLeft( cellsLeft )
 
 maxValues = max(cellsLeft);
 normalizedCellsLeft = bsxfun(@rdivide, cellsLeft, maxValues);
+normalizedCellsLeft(isnan(normalizedCellsLeft)) = 0;
 
 end
 
