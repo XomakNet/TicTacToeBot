@@ -9,8 +9,7 @@ for i = 1:size(board,1)
     arr = diag(squeeze(board(i,:,:)));
     curLine.state = arr;
     temp = handler(curLine);
-    if(temp == 0)
-    else
+    if(isstruct(temp))
         arrayOfLines = [arrayOfLines temp];
     end
     
@@ -20,8 +19,7 @@ for i = 1:size(board,1)
     arr = diag(fliplr(squeeze(board(i,:,:))));
     curLine.state = arr;
     temp = handler(curLine);
-    if(temp == 0)
-    else
+    if(isstruct(temp))
         arrayOfLines = [arrayOfLines temp];
     end
 end
@@ -34,8 +32,7 @@ for j = 1:size(board,2)
     arr = diag(squeeze(board(:,j,:)));
     curLine.state = arr;
     temp = handler(curLine);
-    if(temp == 0)
-    else
+    if(isstruct(temp))
         arrayOfLines = [arrayOfLines temp];
     end
     
@@ -45,8 +42,7 @@ for j = 1:size(board,2)
     arr = diag(fliplr(squeeze(board(:,j,:))));
     curLine.state = arr;
     temp = handler(curLine);
-    if(temp == 0)
-    else
+    if(isstruct(temp))
         arrayOfLines = [arrayOfLines temp];
     end
 end
@@ -59,8 +55,7 @@ for k = 1:size(board,3)
     arr = diag(board(:,:,k));
     curLine.state = arr;
     temp = handler(curLine);
-    if(temp == 0)
-    else
+    if(isstruct(temp))
         arrayOfLines = [arrayOfLines temp];
     end
     
@@ -70,8 +65,7 @@ for k = 1:size(board,3)
     arr = diag(fliplr(board(:,:,k)));
     curLine.state = arr;
     temp = handler(curLine);
-    if(temp == 0)
-    else
+    if(isstruct(temp))
         arrayOfLines = [arrayOfLines temp];
     end
 end

@@ -16,8 +16,7 @@ end
 curLine.endPoint = [i j k];
 curLine.state = arr;
 temp = handler(curLine);
-if(temp == 0)
-else
+if(isstruct(temp))
     arrayOfLines = [arrayOfLines temp];
 end
 
@@ -36,8 +35,7 @@ end
 curLine.endPoint = [i j k];
 curLine.state = arr;
 temp = handler(curLine);
-if(temp ==0)
-else
+if(isstruct(temp))
     arrayOfLines = [arrayOfLines temp];
 end
 
@@ -56,8 +54,7 @@ end
 curLine.endPoint = [i j k];
 curLine.state = arr;
 temp = handler(curLine);
-if(temp ==0)
-else
+if(isstruct(temp))
     arrayOfLines = [arrayOfLines temp];
 end
 
@@ -76,8 +73,7 @@ end
 curLine.endPoint = [i j k];
 curLine.state = arr;
 temp = handler(curLine);
-if(temp ==0)
-else
+if(isstruct(temp))
     arrayOfLines = [arrayOfLines temp];
 end
 

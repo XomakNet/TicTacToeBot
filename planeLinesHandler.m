@@ -8,8 +8,7 @@ for i = 1:size(board,1)
         curLine =  struct ('player', '' , 'startPoint', [i j k] , 'endPoint', [i j size(board,3)],'state', '');
         curLine.state = squeeze(board(i,j,:));
         temp = handler(curLine);
-        if(temp == 0)
-        else
+        if(isstruct(temp))
             arrayOfLines = [arrayOfLines temp];
         end
         
@@ -23,8 +22,7 @@ for j = 1:size(board,2)
         curLine =  struct ('player', '' , 'startPoint', [i j k] , 'endPoint', [size(board,1) j k],'state', '');
         curLine.state = board(:,j,k);
         temp = handler(curLine);
-        if(temp == 0)
-        else
+        if(isstruct(temp))
             arrayOfLines = [arrayOfLines temp];
         end
         
@@ -38,8 +36,7 @@ for k = 1:size(board,3)
         curLine =  struct ('player', '' , 'startPoint', [i j k] , 'endPoint', [i size(board,2)  k],'state', '');
         curLine.state = board(i,:,k);
         temp = handler(curLine);
-        if(temp == 0)
-        else
+        if(isstruct(temp))
             arrayOfLines = [arrayOfLines temp];
         end
         

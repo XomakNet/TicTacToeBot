@@ -2,11 +2,12 @@ function arrLineSegments = getAllLines( board )
 
 %curLine= struct ('player', '' , 'startPoint', [0 0 0] , 'endPoint', [0 0 0],'state', [0 0 0 0]);
 
-%board = zeros(4,4,4);
-
+arrLineSegments = [];
 %spatial diags + plane diags
-arrLineSegments = [planelDiagsHandler(board); spatialDiagsHandler(board)];
+arrLineSegments = cat(2,arrLineSegments, spatialDiagsHandler(board));
+%plane diags
+arrLineSegments = cat(2,arrLineSegments, planeDiagsHandler(board));
 %planeLines
-arrLineSegments = [arrLineSegments; planeLinesHandler(board)];
+arrLineSegments = cat(2,arrLineSegments, planeLinesHandler(board));
 end
 
