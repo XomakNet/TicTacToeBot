@@ -9,7 +9,7 @@ for p=1:size(lines, 1)
     for i=1:4
         state = line.state(i);
         if state == 0
-            cell = getCoordinatesFromLine(line.start_point, line.end_point, i);
+            cell = getCoordinatesFromLine(line.startPoint, line.endPoint, i);
             moves(movesNumber, 1:end) = cell;
             movesNumber = movesNumber + 1;
         end

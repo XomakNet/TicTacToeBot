@@ -1,11 +1,11 @@
-function coordinate = getCoordinatesFromLine( start_point, end_point, n )
+function coordinate = getCoordinatesFromLine( startPoint, endPoint, n )
 %getCoordinatesFromLine Returns coordinates of n-th point in a line, 
 % defined by start_point and end_point. n goes in [1..4]
     coordinate = zeros(1, 3);
 
     for i=1:3
-        c = start_point(i);
-        if start_point(i) ~= end_point(i)
+        c = startPoint(i);
+        if startPoint(i) ~= endPoint(i)
             c = c + (n-1);
         end
         
