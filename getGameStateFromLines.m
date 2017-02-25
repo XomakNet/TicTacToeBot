@@ -5,7 +5,7 @@ function state = getGameStateFromLines( lines )
 
 state = 0;
 
-for p=1:size(lines, 1)
+for p=1:size(lines, 2)
     line = lines(p);
     if sum(line.state) == 4
         state = line.player;

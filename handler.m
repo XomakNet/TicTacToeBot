@@ -12,6 +12,7 @@ else
         lineInfo.player = 1;
     end;
     if(sum(curLine.state == 2) > 0)
+        curLine.state = curLine.state/2;
         lineInfo= curLine;
         lineInfo.player = 2;
     end;
