@@ -1,6 +1,6 @@
 function arrLineSegments = getAllLines( board )
 
-%curLine= struct ('player', '' , 'start_point', [0 0 0] , 'end_point', [0 0 0],'state', [0 0 0 0]);
+%curLine= struct ('player', '' , 'startPoint', [0 0 0] , 'endPoint', [0 0 0],'state', [0 0 0 0]);
 
 %board = zeros(4,4,4);
 

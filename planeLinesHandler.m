@@ -1,13 +1,18 @@
 function arrayOfLines = planeLinesHandler( board )
+arrayOfLines = [];
 
 % k is height
 k = 1;
 for i = 1:size(board,1)
     for j = 1:size(board,2)
-        while(k < size(board,3))
-            %handler
-            k = k +1;
+        curLine =  struct ('player', '' , 'startPoint', [i j k] , 'endPoint', [i j size(board,3)],'state', '');
+        curLine.state = squeeze(board(i,j,:));
+        temp = handler(curLine);
+        if(temp == 0)
+        else
+            arrayOfLines = [arrayOfLines temp];
         end
+        
     end
 end
 
@@ -15,10 +20,14 @@ end
 i = 1;
 for j = 1:size(board,2)
     for k = 1:size(board,3)
-        while(i < size(board,1))
-            %handler
-            i = i +1;
+        curLine =  struct ('player', '' , 'startPoint', [i j k] , 'endPoint', [size(board,1) j k],'state', '');
+        curLine.state = board(:,j,k);
+        temp = handler(curLine);
+        if(temp == 0)
+        else
+            arrayOfLines = [arrayOfLines temp];
         end
+        
     end
 end
 
@@ -26,10 +35,14 @@ end
 j = 1;
 for k = 1:size(board,3)
     for i = 1:size(board,1)
-        while(j < size(board,2))
-            %handler
-            j = j +1;
+        curLine =  struct ('player', '' , 'startPoint', [i j k] , 'endPoint', [i size(board,2)  k],'state', '');
+        curLine.state = board(i,:,k);
+        temp = handler(curLine);
+        if(temp == 0)
+        else
+            arrayOfLines = [arrayOfLines temp];
         end
+        
     end
 end
 

@@ -68,7 +68,7 @@ k = size(board,3);
 curLine =  struct ('player', '' , 'startPoint', [i j k] , 'endPoint', [0 0 0],'state', '');
 arr = [];
 while(i >= 1 && j <= size(board,2) && k >= 1)
-   arr = [arr board(i,j,k)];
+    arr = [arr board(i,j,k)];
     i = i - 1;
     j = j + 1;
     k = k - 1;
