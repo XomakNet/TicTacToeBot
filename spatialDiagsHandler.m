@@ -13,7 +13,7 @@ while(i <= size(board,1) && j <= size(board,2) && k <= size(board,3))
     j = j+1;
     k = k+1;
 end
-curLine.endPoint = [i j k];
+curLine.endPoint = [i-1 j-1 k-1];
 curLine.state = arr;
 temp = handler(curLine);
 if(isstruct(temp))
@@ -32,7 +32,7 @@ while(i  >= 1 && j <= size(board,2) && k <= size(board,3))
     j = j + 1;
     k = k + 1;
 end
-curLine.endPoint = [i j k];
+curLine.endPoint = [i+1 j-1 k-1];
 curLine.state = arr;
 temp = handler(curLine);
 if(isstruct(temp))
@@ -51,7 +51,7 @@ while(i <= size(board,1) && j <= size(board,2) && k >= 1)
     j = j + 1;
     k = k - 1;
 end
-curLine.endPoint = [i j k];
+curLine.endPoint = [i-1 j-1 k+1];
 curLine.state = arr;
 temp = handler(curLine);
 if(isstruct(temp))
@@ -70,7 +70,7 @@ while(i >= 1 && j <= size(board,2) && k >= 1)
     j = j + 1;
     k = k - 1;
 end
-curLine.endPoint = [i j k];
+curLine.endPoint = [i+1 j-1 k+1];
 curLine.state = arr;
 temp = handler(curLine);
 if(isstruct(temp))
