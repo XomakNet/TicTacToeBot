@@ -1,7 +1,7 @@
 function move = playTTTT(board, player)
 moves = getAllPossibleMovesFromField(board);
-cellsLeftForCurrentPlayer = zeros(size(moves,1), 4);
-cellsLeftForEnemy = zeros(size(moves,1), 4);
+cellsLeftForCurrentPlayer = zeros(size(moves,1), 5);
+cellsLeftForEnemy = zeros(size(moves,1), 5);
 for moveNumber=1:size(moves, 1)
     i = moves(moveNumber, 1);
     j = moves(moveNumber, 2);
