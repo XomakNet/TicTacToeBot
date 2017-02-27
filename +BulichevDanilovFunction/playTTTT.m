@@ -11,10 +11,13 @@ for moveNumber=1:size(moves, 1)
     [cellsLeftForCurrentPlayer(moveNumber,:), cellsLeftForEnemy(moveNumber,:)] = getCellsLeftFromLines(lines, player);
     board(i, j, k) = 0;
 end
-estimationsForCurrentPlayer = estimateMovesByCellsLeft(normalizeCellsLeft(cellsLeftForCurrentPlayer));
-estimationsForEnemy = estimateMovesByCellsLeft(normalizeCellsLeft(cellsLeftForEnemy));
+weightsForCellsLeft = [1;0.5;0.25;0.1875;0.0625];
+weightsForUnion = [0.5;0.5];
 
-estimations = estimateMovesForOneSide(estimationsForCurrentPlayer, estimationsForEnemy);
+estimationsForCurrentPlayer = estimateMovesByCellsLeft(normalizeCellsLeft(cellsLeftForCurrentPlayer), weightsForCellsLeft);
+estimationsForEnemy = estimateMovesByCellsLeft(normalizeCellsLeft(cellsLeftForEnemy), weightsForCellsLeft);
+
+estimations = estimateMovesForOneSide(estimationsForCurrentPlayer, estimationsForEnemy, weightsForUnion);
 [maxEstimation, ~] = max(estimations);
 
 [bestMovesIndexes, ~] = find(estimations==maxEstimation);
