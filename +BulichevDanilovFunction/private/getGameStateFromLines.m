@@ -13,5 +13,9 @@ for p=1:size(lines, 2)
     end
 end
 
+if size(lines, 2) == 0
+    state = 3;
+end
+
 end
 
