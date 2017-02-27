@@ -1,5 +1,6 @@
 function arrLineSegments = getAllLines( board )
 
+
 %curLine= struct ('player', '' , 'startPoint', [0 0 0] , 'endPoint', [0 0 0],'state', [0 0 0 0]);
 
 arrLineSegments = [];

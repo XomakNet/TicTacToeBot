@@ -1,5 +1,5 @@
 function moves = getPossibleMovesByLines( lines )
-%getPossibleMoves Returns N possible moves as matrix Nx3, using current 
+%getPossibleMoves Returns N possible moves as matrix Nx3, using current
 % lines situation (every possible move is an option to extend the line)
 
 moves = repmat(-1, 2*size(lines, 1), 3);
