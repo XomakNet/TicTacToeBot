@@ -15,6 +15,9 @@ estimationsForCurrentPlayer = estimateMovesByCellsLeft(normalizeCellsLeft(cellsL
 estimationsForEnemy = estimateMovesByCellsLeft(normalizeCellsLeft(cellsLeftForEnemy));
 
 estimations = estimateMovesForOneSide(estimationsForCurrentPlayer, estimationsForEnemy);
-[~, bestMoveNumber] = max(estimations);
-move = moves(bestMoveNumber,:);
+[maxEstimation, ~] = max(estimations);
+
+[bestMovesIndexes, ~] = find(estimations==maxEstimation);
+bestMoveIndex = bestMovesIndexes(randi(numel(bestMovesIndexes)));
+move = moves(bestMoveIndex,:);
 end
