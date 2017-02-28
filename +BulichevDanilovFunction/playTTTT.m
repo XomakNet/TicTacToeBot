@@ -25,13 +25,13 @@ if size(moves, 1) > 0
     averageEstimationForCurrent = mean(estimationsForCurrentPlayer);
     averageEstimationForEnemy = mean(estimationsForEnemy);
 
-    %if player == 1
-    %    aggressive = 0.9 - averageEstimationForEnemy * 0.7;
-    %else
-    %    aggressive = 0.8 - averageEstimationForEnemy * 0.7;
-    %end
+    if player == 1
+        aggressive = 0.99 - averageEstimationForEnemy * 0.22;
+    else
+       aggressive = 0.75 - averageEstimationForEnemy * 0.28;
+    end
 	
-	aggressive = 0.5;
+	%aggressive = 0.5;
     weightsForUnion = [aggressive; 1-aggressive];
     
     estimations = [estimationsForCurrentPlayer 1-estimationsForEnemy] * weightsForUnion;
