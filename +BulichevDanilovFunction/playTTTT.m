@@ -14,10 +14,10 @@ if size(moves, 1) > 0
         [cellsLeftForCurrentPlayer(moveNumber,:), cellsLeftForEnemy(moveNumber,:)] = getCellsLeftFromLines(lines, player);
         board(i, j, k) = 0;
     end
-    weightsForOwnCellsLeft = [1;0.5;0.25;0.1875;0.0625];
-    weightsForEnemyCellsLeft = [0;3;0.5;0.35;0.15];
-
-
+    weightsForOwnCellsLeft = [20;0.5;0.25;0.1875;0.0625];
+    weightsForEnemyCellsLeft = [0;0;0.5;0.35;0.15];
+    
+    [enemyWinMovesIndexes, ~] = find(cellsLeftForEnemy(:, 2));
 
     estimationsForCurrentPlayer = estimateMovesByCellsLeft(normalizeCellsLeft(cellsLeftForCurrentPlayer), weightsForOwnCellsLeft);
     estimationsForEnemy = estimateMovesByCellsLeft(normalizeCellsLeft(cellsLeftForEnemy), weightsForEnemyCellsLeft);
@@ -25,10 +25,21 @@ if size(moves, 1) > 0
     averageEstimationForCurrent = mean(estimationsForCurrentPlayer);
     averageEstimationForEnemy = mean(estimationsForEnemy);
 
-    aggressive = 0.9 - averageEstimationForEnemy/4 * 0.7;
+    %if player == 1
+    %    aggressive = 0.9 - averageEstimationForEnemy * 0.7;
+    %else
+    %    aggressive = 0.8 - averageEstimationForEnemy * 0.7;
+    %end
+	
+	aggressive = 0.5;
     weightsForUnion = [aggressive; 1-aggressive];
     
-    estimations = [estimationsForCurrentPlayer 4-estimationsForEnemy] * weightsForUnion;
+    estimations = [estimationsForCurrentPlayer 1-estimationsForEnemy] * weightsForUnion;
+    
+    for enemyWinMove = enemyWinMovesIndexes
+        estimations(enemyWinMove) = estimations(enemyWinMove) - 5;
+    end
+    
     %estimations = estimateMovesForOneSide(estimationsForCurrentPlayer, estimationsForEnemy, weightsForUnion);
     [maxEstimation, ~] = max(estimations);
 
