@@ -14,8 +14,8 @@ if size(moves, 1) > 0
         [cellsLeftForCurrentPlayer(moveNumber,:), cellsLeftForEnemy(moveNumber,:)] = getCellsLeftFromLines(lines, player);
         board(i, j, k) = 0;
     end
-    weightsForOwnCellsLeft = [20;0.5;0.25;0.1875;0.0625];
-    weightsForEnemyCellsLeft = [0;0;0.5;0.35;0.15];
+    weightsForOwnCellsLeft = [20;0.6;0.30;0.10;0];
+    weightsForEnemyCellsLeft = [0;0;0.99;0.01;0];
     
     [enemyWinMovesIndexes, ~] = find(cellsLeftForEnemy(:, 2));
 
@@ -26,9 +26,9 @@ if size(moves, 1) > 0
     averageEstimationForEnemy = mean(estimationsForEnemy);
 
     if player == 1
-        aggressive = 0.99 - averageEstimationForEnemy * 0.22;
+        aggressive = 0.99 - averageEstimationForEnemy * 0.5;
     else
-       aggressive = 0.75 - averageEstimationForEnemy * 0.28;
+        aggressive = 0.6 - averageEstimationForEnemy * 0.5;
     end
 	
 	%aggressive = 0.5;
